@@ -1,0 +1,29 @@
+
+
+
+   <h1>TU COMPRA</h1>
+
+ 
+  <table class="table table-primary table-striped" >
+    <thead>
+     <tr class="table-dark">
+        <th scope="col">#ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Precio</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+  {{#each productList}}
+      <tr>
+        <th scope="row">{{this._id}}</th>
+        <td>{{this.title}}</td>
+        <td>{{this.quantity}}</td>
+        <td>Us$:{{this.price}}</td>
+      </tr>
+  {{/each}}
+    </tbody>
+  </table>
+
