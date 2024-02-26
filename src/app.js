@@ -31,10 +31,10 @@ app.use("/",viewRouter)
 
 const httpServer = app.listen(PORT, () => {
     try {
-        console.log(`Listening to the port ${PORT}\nAcceder a:`);
+        console.log(`Listening to the port ${PORT}\n Acceder a:`);
         console.log(`\t1). http://localhost:${PORT}/`)
         console.log(`\t2). http://localhost:${PORT}/realtimeproducts`);
-        console.log(`\t3). http://localhost:${PORT}/cart/65ca90fcd9c2dcb92a0bb005`);
+        console.log(`\t3). http://localhost:${PORT}/cart`);
 
     }
     catch (err) {

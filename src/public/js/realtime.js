@@ -1,5 +1,8 @@
 const socketClient = io()
 
+document.addEventListener('DOMContentLoaded', function() {
+  socketClient.emit("getProducts");
+});
 
 socketClient.on("enviodeproducts", (obj) => {
   console.log(obj)
@@ -18,7 +21,7 @@ function updateProductList(products) {
               <img src="${product.thumbnail}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">${product.title}</h5>
-                <p class="card-text">${product.description}</p>
+                <p >Id:${product._id}</p>
               </div>
             </div>
           </div>
@@ -61,3 +64,4 @@ document.getElementById("delete-btn").addEventListener("click", function () {
   socketClient.emit("deleteProduct", deleteid);
   deleteidinput.value = "";
 });
+

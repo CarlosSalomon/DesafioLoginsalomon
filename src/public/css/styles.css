@@ -6,88 +6,106 @@
 }
 
 body {
-  
+
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   background: #243340;
-	
+
 }
 
 
-.navbar{
+.navbar {
   width: 100%;
 }
 
 
-#list-products{
+#list-products {
   position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 30px; 
+  gap: 30px;
   margin-bottom: 50px;
 }
+
 .container {
   position: relative;
 }
 
-.cards-container{
-  display:  flex;
+.cards-container {
+  display: flex;
   padding: 10px;
 }
-.card-img-top{
-  height:   200px !important;
+
+.card-img-top {
+  height: 200px !important;
 }
 
 
 #formProduct {
   display: flex;
-flex-wrap: wrap;
+  flex-wrap: wrap;
   background: #223e50;
-  padding: 30px;
+  padding: 85px;
   margin: auto;
   margin-top: 100px;
-  margin-bottom:60px;
+  margin-bottom: 60px;
   border-radius: 4px;
   font-family: 'calibri';
   color: white;
-  box-shadow: 7px 13px 37px #ffffff;
+  box-shadow: 7px 13px 37px #4a74ce;
 }
 
 
 .controls {
   width: 100%;
-  background: #ffffff;
+  background-color: transparent;
   padding: 10px;
   border-radius: 6px;
   margin-bottom: 16px;
-  border: 3px solid #000000;
+  border: 3px solid #737d9f9d;
   font-family: 'calibri';
   font-size: 18px;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 #formProduct p {
+  color: #ffffff;
   height: 40px;
   text-align: center;
   font-size: 18px;
   line-height: 40px;
 }
+
+h2 {
+  color: #ffffff;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 25px;
+  line-height: 40px;
+  margin-top: 25px;
+  margin-bottom: -80px;
+}
+
 #formProduct h2 {
   margin: 0 auto;
   height: 40px;
   text-align: center;
   font-size: 18px;
   line-height: 40px;
+
+  @media screen and (max-width: 425px) {
+    font-size: 10px;
+  }
 }
 
 #formProduct a {
   color: white;
-  text-decoration: none;                                                        
+  text-decoration: none;
 }
 
 #formProduct a:hover {
@@ -96,34 +114,148 @@ flex-wrap: wrap;
 }
 
 #formProduct .botons {
+
   width: 100%;
-  background: #000000;
+  background: #020b2b8a;
   border-radius: 6px;
   padding: 12px;
   color: white;
   margin: 16px 0;
   font-size: 16px;
 }
-h1{
-color: aliceblue;
-box-shadow:  #0252ff;
+
+
+h1 {
+  color: aliceblue;
+  box-shadow: #0252ff;
 
 }
-.card{
+
+.card {
   display: flex;
   justify-content: center;
   width: 16rem;
 
 }
 
-.card-body{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
 }
-.card-text{
-color: #4f4f51;
 
+.card-text {
+  color: #4f4f51;
+
+}
+
+.btndl {
+  width: 50px;
+  color: #ffffff;
+  font-size: 10px;
+  border-radius: 4px;
+  background-color: #900101;
+  border-color: #ffffff;
+}
+
+.imgcart {
+  display: flex;
+  border-radius: 6px;
+  background-size: auto;
+  width: 60px;
+  height: 60px;
+
+
+
+}
+
+.page {
+  display: flex;
+  flex-direction: row;
+}
+
+.prev-page {
+  padding: 10px;
+
+}
+
+.count-page {
+  padding: 10px;
+}
+
+.next-page {
+  padding: 10px;
+}
+
+.inpcant {
+  display: flex;
+  justify-content: center;
+  width: 50px;
+  margin: 0 auto;
+  margin-top: 5px;
+  border-radius: 5px;
+
+}
+
+.pd-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+
+.img-pdt {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 320px;
+  max-width: 800px;
+
+  margin: 0 auto;
+
+  border-radius: 10px;
+
+}
+
+.datos {
+  color: #ffffff;
+
+}
+
+.titlepd {
+  color: #900101;
+  font-style: italic;
+}
+
+.btn-pd {
+  width: 100px;
+  border-radius: 10px;
+  background-color: #900101;
+  color: #ffffff;
+
+}
+
+.offcanvas-css{
+  display: flex;
+  margin-top: 150px;
+background-color: #243340;
+border-radius: 10px;
+color: #ffffff;
+height: 350px;
+}
+
+.offcanvas-header{
+  display: flex;
+  
+}
+
+.btn-close {
+
+  color: #900101;
+  background-color: #900101;
+  border-radius: 5px;
+  border-color: #ffffff;
 }

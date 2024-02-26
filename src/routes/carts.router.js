@@ -38,7 +38,8 @@ router.post('/add-to-cart', async (req, res) => {
         _id: productId,
         quantity,
         title: productDetails.title,
-        price: productDetails.price
+        price: productDetails.price,
+        total:productDetails.price * productDetails.quantity 
       });
     }
 

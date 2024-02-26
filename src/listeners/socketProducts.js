@@ -5,8 +5,7 @@ const pm = new ProductManager()
 const socketProducts = (socketServer) => {
     socketServer.on("connection", async (socket) => {
         console.log("client connected con ID:", socket.id)
-
-
+        
         socket.on("addProduct", async (obj) => {
             await pm.addProduct(obj)
             const listadeproductos = await pm.getProducts()
