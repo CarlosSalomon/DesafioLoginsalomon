@@ -13,12 +13,13 @@ router.get("/", async (req, res) => {
   try {
     let pageNum = parseInt(req.query.page) || 1;
     let itemsPorPage = parseInt(req.query.limit) || 5;
-    let sortByPrice = req.query.sort === 'asc' ? 'price' : req.query.sort === 'desc' ? '-price' : null; // Verificar el parámetro de ordenamiento
+    let sortByPrice = req.query.sort === 'asc' ? 'price' : req.query.sort === 'desc' ? '-price' : null; 
+    let category = req.query.category ? { category: req.query.category } : {};
     const query = {};
     if (sortByPrice) {
       query.sort = sortByPrice;
     }
-    const products = await productsModel.paginate({}, { page: pageNum, limit: itemsPorPage, sort: query.sort, lean: true });
+    const products = await productsModel.paginate(category, { page: pageNum, limit: itemsPorPage, sort: query.sort, lean: true });
     products.prevLink = products.hasPrevPage ? `/?limit=${itemsPorPage}&page=${products.prevPage}` : '';
     products.nextLink = products.hasNextPage ? `/?limit=${itemsPorPage}&page=${products.nextPage}` : '';
     products.page = products.page;
@@ -30,7 +31,6 @@ router.get("/", async (req, res) => {
     res.status(500).json({ error: 'error al leer los productos' })
   }
 })
-
 
 router.get("/realtimeproducts", (req, res) => {
   res.render("realtimeproducts")
@@ -67,6 +67,19 @@ router.post('/add-to-cart', async (req, res) => {
   } catch (error) {
     console.error('Error al agregar producto al carrito:', error);
     res.status(500).json({ message: 'Error al agregar producto al carrito' });
+  }
+});
+router.delete('/empty-cart', async (req, res) => {
+  try {
+      // Lógica para vaciar completamente el carrito
+      const cartId = "65ca90fcd9c2dcb92a0bb005"; // ID del carrito a vaciar
+
+      const cart = await cmanager.removeallProductFromCart(cartId);
+
+      res.status(200).json({ message: 'Carrito vaciado exitosamente' });
+  } catch (error) {
+      console.error('Error al vaciar el carrito:', error);
+      res.status(500).json({ error: 'Error al vaciar el carrito' });
   }
 });
 

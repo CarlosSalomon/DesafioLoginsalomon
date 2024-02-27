@@ -125,13 +125,67 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   document.getElementById('totalGeneral').textContent = totalGeneral;
 });
-//filtro
-const sortForm = document.getElementById('sortForm');
 
-sortForm.addEventListener('change', (event) => {
-  const selectedSort = document.querySelector('input[name="exampleRadios"]:checked').value;
-  const selectedCategory = document.getElementById('categorySelect').value;
-  let newUrl = `/?sort=${selectedSort}&category=${selectedCategory}`;
-  console.log(newUrl);
-  window.location.href = newUrl;
+document.querySelectorAll('#filtrar').forEach(button => {
+  button.addEventListener('click', function (event) {
+      const sortForm = document.getElementById('sortForm');
+
+
+      document.querySelectorAll('#filtrar').forEach(button => {
+          button.addEventListener('click', function (event) {
+              const selectedCategory = document.getElementById('categorySelect').value;
+              let newUrl = `/?category=${selectedCategory}`;
+              console.log(newUrl);
+              window.location.href = newUrl;
+          });
+      });
+
+      document.getElementById('sortForm').addEventListener('click', (event) => {
+          const selectedSort = document.querySelector('input[name="exampleRadios"]:checked').value;
+          const selectedCategory = document.getElementById('categorySelect').value;
+          let newUrl = `/?sort=${selectedSort}&category=${selectedCategory}`;
+          console.log(newUrl);
+          window.location.href = newUrl;
+      });
+  })
 });
+
+ document.getElementById('empty-cart-button').addEventListener('click', async function(event) {
+  event.preventDefault();
+
+  try {
+      Swal.fire({
+          title: "¿Estás seguro?",
+          text: "¡Esta acción vaciará por completo tu carrito!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#d33",
+          cancelButtonColor: "#3085d6",
+          confirmButtonText: "Sí, vaciar carrito"
+      }).then(async(result) => {
+          if (result.isConfirmed) {
+              const response = await fetch('/empty-cart', {
+                  method: 'DELETE',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  }
+              });
+              const data = await response.json();
+
+              Swal.fire({
+                  title: "¡Carrito vaciado!",
+                  text: "Tu carrito ha sido vaciado exitosamente.",
+                  icon: "success",
+                  showConfirmButton: false,
+                  timer: 3000
+              });
+              setTimeout(() => {
+                  location.reload();
+              }, 2000);
+          }
+      });
+  } catch (error) {
+      console.error('Error al procesar la solicitud:', error);
+      Swal.fire('Error', 'Error al procesar la solicitud', 'error');
+  }
+})

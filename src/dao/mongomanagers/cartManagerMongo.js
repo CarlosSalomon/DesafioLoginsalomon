@@ -41,14 +41,14 @@ class CartManager {
     try {
         const cart = await cartModel.findById(cid);
 
-        // Verifico si el producto ya está en el carrito
+        
         const existingProduct = cart.products.find(product => product._id.toString() === id);
 
         if (existingProduct) {
-            // Actualizo la cantidad del producto en el carrito
+        
             existingProduct.quantity += quantity;
         } else {
-            // Agrego el producto al carrito con la cantidad especificada
+            
             cart.products.push({
                 _id: obj._id,
                 quantity: quantity,
@@ -65,15 +65,22 @@ class CartManager {
         return err;
     }
 };
+
+removeallProductFromCart = async(cartId) =>{
+  const cart = await cartModel.findById(cartId)
+  cart.products = [];
+  await cart.save();
+}
+
   removeProductFromCart = async (cartId, productId) => {
     try {
       const cart = await cartModel.findById(cartId);
 
-      // Encuentro el índice del producto en el carrito
+      
       const productIndex = cart.products.findIndex((product) => product._id.toString() === productId);
 
       if (productIndex !== -1) {
-        // Elimino el producto del carrito
+        
         cart.products.splice(productIndex, 1);
         await cart.save();
         return await cartModel.findById(cartId);
@@ -85,6 +92,7 @@ class CartManager {
       return err;
     }
   };
+
 
 };
 

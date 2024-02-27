@@ -235,7 +235,14 @@ h1 {
   border-radius: 10px;
   background-color: #900101;
   color: #ffffff;
+}
 
+.pd2{
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+margin: 0 auto;
+    
 }
 
 .offcanvas-css{
@@ -259,3 +266,18 @@ height: 350px;
   border-radius: 5px;
   border-color: #ffffff;
 }
+
+.counter-page {
+color: #ffffff;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  margin-block-start: auto;
+
+margin-top: 25px;
+
+
+}
+
