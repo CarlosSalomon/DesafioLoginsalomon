@@ -6,7 +6,6 @@
 }
 
 body {
-
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -166,9 +165,6 @@ h1 {
   background-size: auto;
   width: 60px;
   height: 60px;
-
-
-
 }
 
 .page {
@@ -237,30 +233,28 @@ h1 {
   color: #ffffff;
 }
 
-.pd2{
+.pd2 {
   display: flex;
   margin-top: 10px;
   justify-content: center;
-margin: 0 auto;
-    
+  margin: 0 auto;
+
 }
 
-.offcanvas-css{
+.offcanvas-css {
   display: flex;
   margin-top: 150px;
-background-color: #243340;
-border-radius: 10px;
-color: #ffffff;
-height: 350px;
+  background-color: #243340;
+  border-radius: 10px;
+  color: #ffffff;
+  height: 350px;
 }
 
-.offcanvas-header{
+.offcanvas-header {
   display: flex;
-  
 }
 
 .btn-close {
-
   color: #900101;
   background-color: #900101;
   border-radius: 5px;
@@ -268,16 +262,12 @@ height: 350px;
 }
 
 .counter-page {
-color: #ffffff;
+  color: #ffffff;
 }
 
 .filters {
   display: flex;
   flex-wrap: wrap;
   margin-block-start: auto;
-
-margin-top: 25px;
-
-
+  margin-top: 25px;
 }
-

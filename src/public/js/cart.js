@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   document.getElementById('totalGeneral').textContent = totalGeneral;
 });
-
+//Filtros
 document.querySelectorAll('#filtrar').forEach(button => {
   button.addEventListener('click', function (event) {
       const sortForm = document.getElementById('sortForm');
@@ -149,7 +149,7 @@ document.querySelectorAll('#filtrar').forEach(button => {
       });
   })
 });
-
+//Vaciar Carrito completo
  document.getElementById('empty-cart-button').addEventListener('click', async function(event) {
   event.preventDefault();
 
