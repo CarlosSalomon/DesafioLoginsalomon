@@ -4,6 +4,7 @@ import {Router} from "express"
 import { __dirname } from "../utils.js"
 import CartManager from "../dao/mongomanagers/cartManagerMongo.js"
 import ProductManager from "../dao/mongomanagers/productManagerMongo.js"
+import { requireAuth, isAdmin } from "../config/authMiddleware.js"
 
 
 const cm = new CartManager()
@@ -12,18 +13,18 @@ const pm = new ProductManager()
 
 const router =Router()
 
-router.get("/carts",async(req,res)=>{
+router.get("/carts", async(req,res)=>{
    const carrito=await cm.getCarts()
    res.json({carrito})
 })
 
-router.get("/carts/:cid",async(req,res)=>{
+router.get("/carts/:cid",  async(req,res)=>{
   const{cid}=req.params
     const carritofound=await cm.getCartById(cid)
     res.json({status:"success",carritofound})
 })
 
-router.post('/add-to-cart', async (req, res) => {
+router.post('/add-to-cart',  async (req, res) => {
   try {
     const { productId } = req.body;
 
@@ -79,7 +80,7 @@ router.post('/carts', async (req, res) => {
 
 
 
-router.post("/cart/:cid/products/:pid", async (req, res) => {
+router.post("/cart/:cid/products/:pid",  async (req, res) => {
     const { cid, pid } = req.params;
     const { quantity } = req.body;
   

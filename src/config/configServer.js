@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 const URI="mongodb+srv://csalomon55:Lujos101@cluster0.m0n3rqd.mongodb.net/?retryWrites=true&w=majority"
  
 
